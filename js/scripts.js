@@ -22,51 +22,37 @@ function validarCPF(cpf) {
   if (resto === 10 || resto === 11) {
     resto = 0;
   }
-  if (resto !== parseInt(cpf.charAt(10))) {
-    return false;
-  }
-  return true;
+  return resto === parseInt(cpf.charAt(10));
 }
 
-function mostrarErro(elemento, mensagem) {
-  const erroElemento = document.getElementById(`${elemento.id}-error`);
-  erroElemento.textContent = mensagem;
-  elemento.classList.add("input-error");
-}
+document
+  .getElementById("cadastro-form")
+  .addEventListener("submit", function (event) {
+    event.preventDefault();
+    const cpf = document.getElementById("cpf").value;
+    const nomeMae = document.getElementById("nome-mae").value;
+    const nomeCrianca = document.getElementById("nome-crianca").value;
 
-function limparErros() {
-  const mensagensErro = document.querySelectorAll(".error-message");
-  mensagensErro.forEach((mensagem) => (mensagem.textContent = ""));
-  const inputsErro = document.querySelectorAll(".input-error");
-  inputsErro.forEach((input) => input.classList.remove("input-error"));
-}
-
-function cadastrar(event) {
-  event.preventDefault();
-  limparErros();
-
-  const cpf = document.getElementById("cpf");
-  const nomeMae = document.getElementById("nome-mae");
-  const nomeCrianca = document.getElementById("nome-crianca");
-
-  if (cpf.value && nomeMae.value && nomeCrianca.value) {
-    if (validarCPF(cpf.value)) {
-      alert(
-        "Cadastro concluído. Você será redirecionado para a página de login em 5 segundos."
-      );
-      setTimeout(() => {
-        window.location.href = "index.html";
-      }, 5000);
-    } else {
-      mostrarErro(cpf, "CPF inválido. Por favor, insira um CPF válido.");
+    if (!validarCPF(cpf)) {
+      document.getElementById("cpf-error").textContent = "CPF inválido";
+      return;
     }
-  } else {
-    if (!cpf.value) mostrarErro(cpf, "Campo CPF é obrigatório.");
-    if (!nomeMae.value)
-      mostrarErro(nomeMae, "Campo Nome da Mãe é obrigatório.");
-    if (!nomeCrianca.value)
-      mostrarErro(nomeCrianca, "Campo Nome da Criança é obrigatório.");
-  }
-}
 
-document.getElementById("cadastro-form").addEventListener("submit", cadastrar);
+    if (nomeMae.trim() === "") {
+      document.getElementById("nome-mae-error").textContent =
+        "Nome da mãe é obrigatório";
+      return;
+    }
+
+    if (nomeCrianca.trim() === "") {
+      document.getElementById("nome-crianca-error").textContent =
+        "Nome da criança é obrigatório";
+      return;
+    }
+
+    alert("Cadastro concluído! Você será redirecionado à página de login.");
+
+    setTimeout(function () {
+      window.location.href = "index.html";
+    }, 5000);
+  });

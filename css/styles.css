@@ -43,7 +43,8 @@ input:focus {
   outline: none;
 }
 
-.btn-entrar {
+.btn-entrar,
+.btn-cadastrar {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -53,9 +54,11 @@ input:focus {
   border-radius: 4px;
   cursor: pointer;
   transition: background-color 0.3s;
+  margin-bottom: 10px;
 }
 
-.btn-entrar:hover {
+.btn-entrar:hover,
+.btn-cadastrar:hover {
   background-color: #0056b3;
 }
 
