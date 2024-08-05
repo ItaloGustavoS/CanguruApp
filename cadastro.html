@@ -8,7 +8,7 @@
   </head>
   <body>
     <div class="container">
-      <img src="images/logo.jpeg" alt="Método Canguru" class="logo" />
+      <img src="images/logo.png" alt="Método Canguru" class="logo" />
       <div class="form-group">
         <label for="cpf">CPF:</label>
         <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" />
@@ -31,7 +31,27 @@
           placeholder="Digite o nome da criança"
         />
       </div>
-      <button class="btn-entrar">Cadastrar</button>
+      <button class="btn-entrar" onclick="cadastrar()">Cadastrar</button>
     </div>
+
+    <script>
+      function cadastrar() {
+        // Verifica se os campos estão preenchidos
+        const cpf = document.getElementById("cpf").value;
+        const nomeMae = document.getElementById("nome-mae").value;
+        const nomeCrianca = document.getElementById("nome-crianca").value;
+
+        if (cpf && nomeMae && nomeCrianca) {
+          alert(
+            "Cadastro concluído. Você será redirecionado para a página de login em 5 segundos."
+          );
+          setTimeout(() => {
+            window.location.href = "index.html";
+          }, 5000); // Redireciona após 5 segundos (5000 ms)
+        } else {
+          alert("Por favor, preencha todos os campos.");
+        }
+      }
+    </script>
   </body>
 </html>
