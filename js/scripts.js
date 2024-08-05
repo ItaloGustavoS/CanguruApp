@@ -107,7 +107,7 @@ async function enviarDadosLogin(event) {
 
     if (result.success) {
       alert("Login bem-sucedido! Você será redirecionado para o painel.");
-      setTimeout(() => (window.location.href = "painel.html"), 3000);
+      setTimeout(() => (window.location.href = "registro.html"), 3000);
     } else {
       exibirMensagemErro("cpf-error", result.message);
     }
