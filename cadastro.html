@@ -34,24 +34,6 @@
       <button class="btn-entrar" onclick="cadastrar()">Cadastrar</button>
     </div>
 
-    <script>
-      function cadastrar() {
-        // Verifica se os campos estão preenchidos
-        const cpf = document.getElementById("cpf").value;
-        const nomeMae = document.getElementById("nome-mae").value;
-        const nomeCrianca = document.getElementById("nome-crianca").value;
-
-        if (cpf && nomeMae && nomeCrianca) {
-          alert(
-            "Cadastro concluído. Você será redirecionado para a página de login em 5 segundos."
-          );
-          setTimeout(() => {
-            window.location.href = "index.html";
-          }, 5000); // Redireciona após 5 segundos (5000 ms)
-        } else {
-          alert("Por favor, preencha todos os campos.");
-        }
-      }
-    </script>
+    <script src="js/scripts.js"></script>
   </body>
 </html>
