@@ -1,3 +1,10 @@
+/* Reset básico para consistência entre navegadores */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: Arial, sans-serif;
   background-color: #f9f9f9;
@@ -34,6 +41,7 @@ label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
+  color: #333; /* Melhor contraste para acessibilidade */
 }
 
 input {
@@ -42,11 +50,12 @@ input {
   font-size: 16px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  transition: border-color 0.3s;
+  transition: border-color 0.3s, box-shadow 0.3s; /* Adicionada transição para box-shadow */
 }
 
 input:focus {
   border-color: #007bff;
+  box-shadow: 0 0 0 3px rgba(38, 143, 255, 0.2); /* Adicionado para melhor visibilidade no foco */
   outline: none;
 }
 
@@ -77,6 +86,7 @@ input:focus {
 
 .input-error {
   border-color: red;
+  box-shadow: 0 0 0 3px rgba(255, 0, 0, 0.2); /* Adicionado para melhor visibilidade em erro */
 }
 
 @media (max-width: 600px) {

@@ -11,10 +11,16 @@
     <meta name="author" content="Seu Nome" />
     <title>Método Canguru - Login</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <!-- Melhorar o SEO com uma favicon -->
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <!-- Adicionar uma tag de robots para controle de indexação -->
+    <meta name="robots" content="index, follow" />
   </head>
   <body>
     <div class="container">
-      <img src="img/logo.jpeg" alt="Logo Método Canguru" class="logo" />
+      <a href="index.html" aria-label="Página inicial">
+        <img src="img/logo.jpeg" alt="Logo Método Canguru" class="logo" />
+      </a>
       <form action="index.html" method="post">
         <div class="form-group">
           <label for="cpf">CPF:</label>
@@ -24,8 +30,9 @@
             name="cpf"
             placeholder="Digite seu CPF"
             required
+            aria-describedby="cpf-error"
           />
-          <div id="cpf-error" class="error-message"></div>
+          <div id="cpf-error" class="error-message" aria-live="assertive"></div>
         </div>
         <button type="submit" class="btn-entrar">Entrar</button>
       </form>

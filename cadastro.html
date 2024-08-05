@@ -14,10 +14,15 @@
     <meta name="author" content="Seu Nome" />
     <title>Método Canguru - Cadastro</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <meta name="robots" content="index, follow" />
   </head>
   <body>
     <div class="container">
-      <img src="img/logo.jpeg" alt="Logo Método Canguru" class="logo" />
+      <a href="index.html" aria-label="Página inicial">
+        <img src="img/logo.jpeg" alt="Logo Método Canguru" class="logo" />
+      </a>
+      <h1>Cadastro</h1>
       <form id="cadastro-form">
         <div class="form-group">
           <label for="cpf">CPF:</label>
@@ -27,8 +32,9 @@
             name="cpf"
             placeholder="Digite seu CPF"
             required
+            aria-describedby="cpf-error"
           />
-          <div id="cpf-error" class="error-message"></div>
+          <div id="cpf-error" class="error-message" aria-live="assertive"></div>
         </div>
         <div class="form-group">
           <label for="nome-mae">Nome da Mãe:</label>
@@ -38,8 +44,13 @@
             name="nome-mae"
             placeholder="Digite o nome da mãe"
             required
+            aria-describedby="nome-mae-error"
           />
-          <div id="nome-mae-error" class="error-message"></div>
+          <div
+            id="nome-mae-error"
+            class="error-message"
+            aria-live="assertive"
+          ></div>
         </div>
         <div class="form-group">
           <label for="nome-crianca">Nome da Criança:</label>
@@ -49,8 +60,13 @@
             name="nome-crianca"
             placeholder="Digite o nome da criança"
             required
+            aria-describedby="nome-crianca-error"
           />
-          <div id="nome-crianca-error" class="error-message"></div>
+          <div
+            id="nome-crianca-error"
+            class="error-message"
+            aria-live="assertive"
+          ></div>
         </div>
         <button type="submit" class="btn-cadastrar">Cadastrar</button>
       </form>
