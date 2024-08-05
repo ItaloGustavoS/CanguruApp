@@ -29,8 +29,8 @@ function exibirMensagemErro(id, mensagem) {
   elemento.style.display = mensagem ? "block" : "none";
 }
 
-// Função para enviar dados do formulário
-async function enviarDados(event) {
+// Função para enviar dados do formulário de cadastro
+async function enviarDadosCadastro(event) {
   event.preventDefault();
 
   const cpf = document.getElementById("cpf").value.trim();
@@ -82,6 +82,43 @@ async function enviarDados(event) {
   }
 }
 
+// Função para enviar dados do formulário de login
+async function enviarDadosLogin(event) {
+  event.preventDefault();
+
+  const cpf = document.getElementById("cpf").value.trim();
+  exibirMensagemErro("cpf-error", "");
+
+  if (!validarCPF(cpf)) {
+    exibirMensagemErro("cpf-error", "CPF inválido");
+    return;
+  }
+
+  try {
+    const response = await fetch("/api/login", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ cpf }),
+    });
+
+    const result = await response.json();
+
+    if (result.success) {
+      alert("Login bem-sucedido! Você será redirecionado para o painel.");
+      setTimeout(() => (window.location.href = "painel.html"), 3000);
+    } else {
+      exibirMensagemErro("cpf-error", result.message);
+    }
+  } catch (error) {
+    alert("Erro ao enviar os dados. Tente novamente mais tarde.");
+  }
+}
+
 document
   .getElementById("cadastro-form")
-  .addEventListener("submit", enviarDados);
+  .addEventListener("submit", enviarDadosCadastro);
+document
+  .getElementById("login-form")
+  .addEventListener("submit", enviarDadosLogin);
