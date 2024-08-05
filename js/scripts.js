@@ -28,24 +28,45 @@ function validarCPF(cpf) {
   return true;
 }
 
-function cadastrar() {
-  // Verifica se os campos estão preenchidos
-  const cpf = document.getElementById("cpf").value;
-  const nomeMae = document.getElementById("nome-mae").value;
-  const nomeCrianca = document.getElementById("nome-crianca").value;
+function mostrarErro(elemento, mensagem) {
+  const erroElemento = document.getElementById(`${elemento.id}-error`);
+  erroElemento.textContent = mensagem;
+  elemento.classList.add("input-error");
+}
 
-  if (cpf && nomeMae && nomeCrianca) {
-    if (validarCPF(cpf)) {
+function limparErros() {
+  const mensagensErro = document.querySelectorAll(".error-message");
+  mensagensErro.forEach((mensagem) => (mensagem.textContent = ""));
+  const inputsErro = document.querySelectorAll(".input-error");
+  inputsErro.forEach((input) => input.classList.remove("input-error"));
+}
+
+function cadastrar(event) {
+  event.preventDefault();
+  limparErros();
+
+  const cpf = document.getElementById("cpf");
+  const nomeMae = document.getElementById("nome-mae");
+  const nomeCrianca = document.getElementById("nome-crianca");
+
+  if (cpf.value && nomeMae.value && nomeCrianca.value) {
+    if (validarCPF(cpf.value)) {
       alert(
         "Cadastro concluído. Você será redirecionado para a página de login em 5 segundos."
       );
       setTimeout(() => {
         window.location.href = "index.html";
-      }, 5000); // Redireciona após 5 segundos (5000 ms)
+      }, 5000);
     } else {
-      alert("CPF inválido. Por favor, insira um CPF válido.");
+      mostrarErro(cpf, "CPF inválido. Por favor, insira um CPF válido.");
     }
   } else {
-    alert("Por favor, preencha todos os campos.");
+    if (!cpf.value) mostrarErro(cpf, "Campo CPF é obrigatório.");
+    if (!nomeMae.value)
+      mostrarErro(nomeMae, "Campo Nome da Mãe é obrigatório.");
+    if (!nomeCrianca.value)
+      mostrarErro(nomeCrianca, "Campo Nome da Criança é obrigatório.");
   }
 }
+
+document.getElementById("cadastro-form").addEventListener("submit", cadastrar);
