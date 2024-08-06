@@ -8,13 +8,73 @@
       content="Página de login do Método Canguru. Acesse sua conta para utilizar os serviços."
     />
     <meta name="keywords" content="Método Canguru, login, acesso, serviços" />
-    <meta name="author" content="Seu Nome" />
+    <meta name="author" content="Ítalo Gustavo" />
     <title>Método Canguru - Login</title>
     <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <meta name="robots" content="index, follow" />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .form-group {
+        width: 300px;
+        margin-bottom: 10px;
+      }
+      #cpf {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .btn-entrar,
+      .btn-cadastrar {
+        width: 300px;
+        padding: 10px;
+        background-color: #007bff;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+      .btn-cadastrar {
+        background-color: #28a745;
+      }
+      footer {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 10px 20px;
+        background-color: #f1f1f1;
+        width: 100%;
+        box-shadow: 0 -1px 5px rgba(0, 0, 0, 0.1);
+        position: relative;
+      }
+      footer p {
+        margin: 0;
+      }
+      footer a {
+        text-decoration: none;
+        color: #000;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <img src="img/logo.jpeg" alt="Logo Método Canguru" class="logo" />
+        <img src="img/logo.jpeg" alt="Logo Método Canguru" class="logo" />
+      </a>
+      <h1>Login</h1>
       <form id="login-form">
         <div class="form-group">
           <label for="cpf">CPF:</label>
@@ -36,6 +96,16 @@
         Cadastrar
       </button>
     </div>
+    <footer>
+      <p>
+        &copy; 2024
+        <a
+          href="https://www.linkedin.com/in/italogustavoggsenna/"
+          target="_blank"
+          >Ítalo Gustavo</a
+        >
+      </p>
+    </footer>
     <script src="js/scripts.js" defer></script>
   </body>
 </html>

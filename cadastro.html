@@ -11,17 +11,52 @@
       name="keywords"
       content="Método Canguru, cadastro, registrar, serviços"
     />
-    <meta name="author" content="Seu Nome" />
+    <meta name="author" content="Ítalo Gustavo" />
     <title>Método Canguru - Cadastro</title>
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
     <meta name="robots" content="index, follow" />
+    <style>
+      body,
+      html {
+        height: 100%;
+        margin: 0;
+        display: flex;
+        flex-direction: column;
+      }
+      .container {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+      }
+      .form-group {
+        width: 300px;
+        margin-bottom: 10px;
+      }
+      #cpf,
+      #nome-mae,
+      #nome-crianca {
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+      }
+      .btn-cadastrar {
+        width: 300px;
+        padding: 10px;
+        background-color: #28a745;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
-      <a href="index.html" aria-label="Página inicial">
-        <img src="img/logo.jpeg" alt="Logo Método Canguru" class="logo" />
-      </a>
+      <img src="img/logo.jpeg" alt="Logo Método Canguru" class="logo" />
       <h1>Cadastro</h1>
       <form id="cadastro-form">
         <div class="form-group">
