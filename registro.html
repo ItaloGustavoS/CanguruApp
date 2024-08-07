@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Página de registro de horários do Método Canguru."
+    />
+    <meta name="keywords" content="Método Canguru, registro, horários" />
+    <meta name="author" content="Ítalo Gustavo" />
+    <title>Método Canguru - Registro de Horários</title>
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon" />
+    <meta name="robots" content="index, follow" />
+  </head>
+  <body>
+    <div class="container">
+      <img src="img/logo.jpeg" alt="Logo Método Canguru" class="logo" />
+      <h1>Registro de Horários</h1>
+      <form id="registro-form">
+        <div class="form-group">
+          <label for="identificacao">Identificação:</label>
+          <input
+            type="text"
+            id="identificacao"
+            name="identificacao"
+            placeholder="056.XXX.XXX-12"
+            readonly
+          />
+        </div>
+        <div class="form-group">
+          <label for="inicio">Horário de Início:</label>
+          <input type="time" id="inicio" name="inicio" required />
+        </div>
+        <div class="form-group">
+          <label for="termino">Horário de Término:</label>
+          <input type="time" id="termino" name="termino" required />
+        </div>
+        <button type="submit" class="btn-registrar">Registrar</button>
+      </form>
+    </div>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        // Suponha que você obtenha o CPF do backend, por exemplo, através de uma chamada AJAX
+        var cpf = "05612345678"; // Exemplo de CPF obtido do backend
+
+        // Função para mascarar o CPF
+        function maskCPF(cpf) {
+          return cpf.replace(/^(\d{3})\d{3}(\d{3})(\d{2})$/, "$1.XXX.XXX-$2");
+        }
+
+        // Define o valor do campo de identificação com o CPF mascarado
+        var identificacaoInput = document.getElementById("identificacao");
+        identificacaoInput.value = maskCPF(cpf);
+      });
+    </script>
+  </body>
+</html>

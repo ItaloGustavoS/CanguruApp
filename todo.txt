@@ -1,5 +1,3 @@
 Botão de Acesso administrativo da Vanessa direto pela pagina de login, onde o criterio de acesso seja o cpf dela
 
-Pagina de registro, exibindo o cpf da pessoa logada, com uma lista com os horários para serem salvos no banco
-
 Uma pagina de exibição dos dados, acessivel apenas pela Vanessa, onde e possivel pesquisar o cpf da mãe e sera exibido todas as informações salvas nele

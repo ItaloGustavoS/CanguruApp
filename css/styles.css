@@ -60,7 +60,8 @@ input:focus {
 }
 
 .btn-entrar,
-.btn-cadastrar {
+.btn-cadastrar,
+.btn-registrar {
   width: 100%;
   padding: 10px;
   font-size: 16px;
@@ -74,7 +75,8 @@ input:focus {
 }
 
 .btn-entrar:hover,
-.btn-cadastrar:hover {
+.btn-cadastrar:hover,
+.btn-registrar:hover {
   background-color: #0056b3;
 }
 
